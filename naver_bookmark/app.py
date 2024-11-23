@@ -35,13 +35,14 @@ async def get_bookmarks_from_url(link: LinkInput):
             # 장소명, 위도, 경도, 주소, 카테고리
             bookmarks = [
                 {
-                    "name": item["name"],
-                    "px": str(item["px"]),
-                    "py": str(item["py"]),
+                    "id": index + 1,
+                    "title": item["name"],
+                    "category": item["mcidName"],
                     "address": item["address"],
-                    "mcidName": item["mcidName"]
+                    "mapx": str(item["px"]),
+                    "mapy": str(item["py"])
                 }
-                for item in bookmarks_data.get("bookmarkList", [])
+                for index, item in bookmarks_data.get("bookmarkList", [])
             ]
 
             return {"shareId": share_id, "bookmarks": bookmarks}
