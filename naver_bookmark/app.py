@@ -39,8 +39,8 @@ async def get_bookmarks_from_url(link: LinkInput):
                     "title": item["name"],
                     "category": item["mcidName"],
                     "address": item["address"],
-                    "mapx": str(item["px"]),
-                    "mapy": str(item["py"])
+                    "mapx": str(item["px"]).replace(".", ""),
+                    "mapy": str(item["py"]).replace(".","")
                 }
                 for index, item in enumerate(bookmarks_data.get("bookmarkList", []))
             ]
