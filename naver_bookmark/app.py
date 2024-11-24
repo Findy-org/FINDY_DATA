@@ -33,6 +33,17 @@ async def get_bookmarks_from_url(link: LinkInput):
             bookmarks_data = response.json()
 
             # 장소명, 위도, 경도, 주소, 카테고리
+            # bookmarks = [
+            #     {
+            #         "id": index + 1,
+            #         "title": item["name"],
+            #         "category": item["mcidName"],
+            #         "address": item["address"],
+            #         "mapx": str(item["px"]),
+            #         "mapy": str(item["py"])
+            #     }
+            #     for index, item in bookmarks_data.get("bookmarkList", [])
+            # ]
             bookmarks = [
                 {
                     "id": index + 1,
@@ -42,7 +53,7 @@ async def get_bookmarks_from_url(link: LinkInput):
                     "mapx": str(item["px"]),
                     "mapy": str(item["py"])
                 }
-                for index, item in bookmarks_data.get("bookmarkList", [])
+                for index, item in enumerate(bookmarks_data.get("bookmarkList", []))
             ]
 
             return {"shareId": share_id, "bookmarks": bookmarks}
