@@ -32,8 +32,8 @@ async def get_bookmarks_from_url(link: LinkInput):
             response.raise_for_status()
             bookmarks_data = response.json()
 
-            # 장소명, 위도, 경도, 주소, 카테고리
-            bookmarks = [
+            # 인덱스, 장소명, 카테고리, 주소, 경도, 위도
+            places = [
                 {
                     "id": index + 1,
                     "title": item["name"],
@@ -42,10 +42,13 @@ async def get_bookmarks_from_url(link: LinkInput):
                     "mapx": str(item["px"]),
                     "mapy": str(item["py"])
                 }
-                for index, item in bookmarks_data.get("bookmarkList", [])
+                for index, item in enumerate(bookmarks_data.get("bookmarkList", []))
             ]
 
-            return {"shareId": share_id, "bookmarks": bookmarks}
+            # 리스트명
+            list_name = bookmarks_data.get("folder", {}).get("name", "Unknown Folder")
+
+            return {"name": list_name, "places": places}
     except httpx.RequestError as e:
         raise HTTPException(status_code=500, detail=f"Request error: {str(e)}")
     except KeyError as e:
