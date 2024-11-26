@@ -39,8 +39,8 @@ async def get_bookmarks_from_url(link: LinkInput):
                     "title": item["name"],
                     "category": item["mcidName"],
                     "address": item["address"],
-                    "mapx": str(item["px"]).replace(".", ""),
-                    "mapy": str(item["py"]).replace(".","")
+                    "mapx": format_coordinates(item["px"]),
+                    "mapy": format_coordinates(item["py"])
                 }
                 for index, item in enumerate(bookmarks_data.get("bookmarkList", []))
             ]
@@ -61,3 +61,10 @@ def extract_share_id_from_url(url: str) -> str:
     if match:
         return match.group(1)
     return None
+    
+# 좌표 포맷 함수 - 소수점 아래 7자리까지 출력
+def format_coordinates(value: float) -> str:
+    # 소수점 7자리 숫자로 값 포맷,
+    formatted_value = f"{value:.7f}"
+    # 소수점 제거
+    return formatted_value.replace(".", "")
