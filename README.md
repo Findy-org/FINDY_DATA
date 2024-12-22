@@ -66,6 +66,12 @@
   <img width="226" alt="스크린샷 2024-12-11 오후 4 35 50" src="https://github.com/user-attachments/assets/e137f517-0e8b-490f-96dd-1736cbc4cb05">
 </div>
 
+### 💻 크롬 확장 프로그램
+<div style="display: flex;" >
+  <img width="400" alt="스크린샷 2024-12-11 오후 4 35 50" src="https://github.com/user-attachments/assets/9a62ebe2-cee1-4e44-8f36-1fc541647902">
+  <img width="400" alt="스크린샷 2024-12-11 오후 4 35 36" src="https://github.com/user-attachments/assets/f823edb8-7b33-4fc2-95ea-1bee242f4e3b">
+</div>  
+
 ## 🏘️TEAM
 
 <div align="start">
